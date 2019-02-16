@@ -1,11 +1,17 @@
+-- Global Variables
 PLUGIN = nil
+Players = {}
 
 function Initialize(Plugin)
     Plugin:SetName("WorldHelper")
     Plugin:SetVersion(1)
 
+    -- Commands
+    cPluginManager.BindCommand("/keepInventory", "worldhelper.keepinventory", ToggleKeepInventory, " - Toggle keep inventory")
+
     -- Hooks
-    cPluginManager.AddHook(cPluginManager.HOOK_PLAYER_RIGHT_CLICK, OnPlayerRightClick)
+    cPluginManager.AddHook(cPluginManager.HOOK_KILLING, OnPossibleKill)
+    cPluginManager.AddHook(cPluginManager.HOOK_PLAYER_SPAWNED, OnPlayerSpawn)
 
     PLUGIN = Plugin
 
@@ -14,5 +20,5 @@ function Initialize(Plugin)
 end
 
 function OnDisable()
-    LOG(Plugin:GetName().." is disabled")
+    LOG(PLUGIN:GetName().." is disabled")
 end
