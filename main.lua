@@ -1,11 +1,11 @@
 PLUGIN = nil
 
 function Initialize(Plugin)
-    Plugin:SetName("WorldEdit")
+    Plugin:SetName("WorldHelper")
     Plugin:SetVersion(1)
 
     -- Hooks
-
+    cPluginManager.AddHook(cPluginManager.HOOK_PLAYER_RIGHT_CLICK, OnPlayerRightClick)
 
     PLUGIN = Plugin
 
