@@ -1,2 +1,2 @@
-# WorldEdit
-Basic world edit plugin for cuberite
+# WorldHelper
+Basic helper plugin for Cuberite
